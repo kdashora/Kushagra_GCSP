@@ -15,12 +15,12 @@ const Navigation = ({ activeSection }) => {
 
   const navItems = [
     { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About Me' },
+    { id: 'about', label: 'About' },
     { id: 'research', label: 'Research' },
     { id: 'multidisciplinary', label: 'Multidisciplinary' },
     { id: 'entrepreneurship', label: 'Entrepreneurship' },
     { id: 'multicultural', label: 'Multicultural' },
-    { id: 'service', label: 'Service Learning' },
+    { id: 'service', label: 'Service' },
     { id: 'conclusion', label: 'Conclusion' },
   ];
 
@@ -42,13 +42,13 @@ const Navigation = ({ activeSection }) => {
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
+        isScrolled ? 'bg-black/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="flex justify-between items-center h-20">
             <button 
               onClick={() => scrollToSection('hero')}
-              className="text-xl font-bold text-slate-900 hover:text-teal-600 transition-colors"
+              className="text-lg font-bold text-white hover:text-gray-300 transition-colors tracking-wide"
             >
               Kushagra Dashora
             </button>
@@ -59,10 +59,10 @@ const Navigation = ({ activeSection }) => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                  className={`px-4 py-2 text-sm font-medium transition-all ${
                     activeSection === item.id
-                      ? 'bg-teal-600 text-white'
-                      : 'text-slate-700 hover:bg-slate-100'
+                      ? 'text-white'
+                      : 'text-gray-400 hover:text-white'
                   }`}
                 >
                   {item.label}
@@ -73,7 +73,7 @@ const Navigation = ({ activeSection }) => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors"
+              className="lg:hidden p-2 text-white hover:text-gray-300 transition-colors"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -84,17 +84,17 @@ const Navigation = ({ activeSection }) => {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
-          <div className="fixed inset-0 bg-black/50" onClick={() => setIsMobileMenuOpen(false)} />
-          <div className="fixed top-20 left-0 right-0 bg-white shadow-lg rounded-b-2xl p-4">
-            <div className="flex flex-col space-y-2">
+          <div className="fixed inset-0 bg-black/95" onClick={() => setIsMobileMenuOpen(false)} />
+          <div className="fixed top-20 left-0 right-0 bg-black border-t border-gray-800 p-6">
+            <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`px-4 py-3 rounded-lg text-left font-medium transition-all ${
+                  className={`px-4 py-3 text-left font-medium transition-all ${
                     activeSection === item.id
-                      ? 'bg-teal-600 text-white'
-                      : 'text-slate-700 hover:bg-slate-100'
+                      ? 'text-white bg-gray-900 rounded-lg'
+                      : 'text-gray-400 hover:text-white'
                   }`}
                 >
                   {item.label}
