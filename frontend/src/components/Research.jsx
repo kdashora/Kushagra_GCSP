@@ -13,6 +13,13 @@ const Research = () => {
 
         <div className="grid lg:grid-cols-2 gap-16 mb-16">
           <div>
+            <div className="mb-8">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/su97u3i1_Wisk_Logo.webp" 
+                alt="Wisk Aero Logo"
+                className="h-12 mb-6"
+              />
+            </div>
             <h4 className="text-2xl font-bold mb-6">Capstone Project</h4>
             <h5 className="text-xl text-gray-400 mb-8">Wisk Aero Partnership</h5>
             
