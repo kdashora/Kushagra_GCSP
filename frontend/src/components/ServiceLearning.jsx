@@ -57,6 +57,13 @@ const ServiceLearning = () => {
 
         {/* Fulton Ambassadors */}
         <div className="mb-16 border-l-2 border-gray-800 pl-8">
+          <div className="mb-8">
+            <img 
+              src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/hb4kyun0_Fulton_ambassadors.jpeg" 
+              alt="Fulton Ambassadors Executive Board"
+              className="w-full rounded-lg shadow-lg"
+            />
+          </div>
           <h3 className="text-3xl font-bold mb-2">Fulton Ambassadors</h3>
           <p className="text-gray-500 mb-8">3.5 Years • Poly Co-Tour Director • Poly President</p>
 
