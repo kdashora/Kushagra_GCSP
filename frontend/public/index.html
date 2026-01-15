@@ -1,175 +1,617 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
-        <!--
-        manifest.json provides metadata used when your web app is installed on a
-        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-        -->
-        <!--
-        Notice the use of %PUBLIC_URL% in the tags above.
-        It will be replaced with the URL of the `public` folder during the build.
-        Only files inside the `public` folder can be referenced from the HTML.
-
-        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-        work correctly both with client-side routing and a non-root public URL.
-        Learn how to configure a non-root public URL by running `npm run build`.
-        -->
-        <title>Emergent | Fullstack App</title>
-        <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
-        <!--
-        These two scripts have been added for the Visual Edits, please do not edit or remove them
-        -->
-        <script>
-            // Only load visual edit scripts when inside an iframe
-            if (window.self !== window.top) {
-                // Load debug monitor script
-                var debugMonitorScript = document.createElement('script');
-                debugMonitorScript.src = 'https://assets.emergent.sh/scripts/debug-monitor.js';
-                document.head.appendChild(debugMonitorScript);
-
-                // Configure Tailwind
-                window.tailwind = window.tailwind || {};
-                tailwind.config = {
-                    corePlugins: { preflight: false },
-                };
-
-                // Load Tailwind CDN
-                var tailwindScript = document.createElement('script');
-                tailwindScript.src = 'https://cdn.tailwindcss.com';
-                document.head.appendChild(tailwindScript);
-            }
-        </script>
-    </head>
-    <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div id="root"></div>
-        <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-        <a
-            id="emergent-badge"
-            target="_blank"
-            href="https://app.emergent.sh/?utm_source=emergent-badge"
-            style="
-                display: flex !important;
-                align-items: center !important;
-                position: fixed !important;
-                bottom: 20px;
-                right: 20px;
-                text-decoration: none;
-                padding: 6px 10px;
-                font-family: -apple-system, BlinkMacSystemFont,
-                    &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu, Cantarell,
-                    &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;,
-                    sans-serif !important;
-                font-size: 12px !important;
-                z-index: 9999 !important;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-                border-radius: 8px !important;
-                background-color: #ffffff !important;
-                border: 1px solid rgba(255, 255, 255, 0.25) !important;
-            "
-        >
-            <div
-                style="display: flex; flex-direction: row; align-items: center"
-            >
-                <img
-                    style="width: 20px; height: 20px; margin-right: 8px"
-                    src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4"
-                />
-                <p
-                    style="
-                        color: #000000;
-                        font-family: -apple-system, BlinkMacSystemFont,
-                            &quot;Segoe UI&quot;, Roboto, Oxygen, Ubuntu,
-                            Cantarell, &quot;Open Sans&quot;,
-                            &quot;Helvetica Neue&quot;, sans-serif !important;
-                        font-size: 12px !important;
-                        align-items: center;
-                        margin-bottom: 0;
-                    "
-                >
-                    Made with Emergent
-                </p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kushagra Dashora - GCSP Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-brand">Kushagra Dashora</a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span class="hamburger"></span>
+            </button>
+            <div class="nav-menu" id="navMenu">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#multidisciplinary" class="nav-link">Multidisciplinary</a>
+                <a href="#entrepreneurship" class="nav-link">Entrepreneurship</a>
+                <a href="#multicultural" class="nav-link">Multicultural</a>
+                <a href="#service" class="nav-link">Service</a>
+                <a href="#conclusion" class="nav-link">Conclusion</a>
             </div>
-        </a>
-        <script>
-            !(function (t, e) {
-                var o, n, p, r;
-                e.__SV ||
-                    ((window.posthog = e),
-                    (e._i = []),
-                    (e.init = function (i, s, a) {
-                        function g(t, e) {
-                            var o = e.split(".");
-                            2 == o.length && ((t = t[o[0]]), (e = o[1])),
-                                (t[e] = function () {
-                                    t.push(
-                                        [e].concat(
-                                            Array.prototype.slice.call(
-                                                arguments,
-                                                0,
-                                            ),
-                                        ),
-                                    );
-                                });
-                        }
-                        ((p = t.createElement("script")).type =
-                            "text/javascript"),
-                            (p.crossOrigin = "anonymous"),
-                            (p.async = !0),
-                            (p.src =
-                                s.api_host.replace(
-                                    ".i.posthog.com",
-                                    "-assets.i.posthog.com",
-                                ) + "/static/array.js"),
-                            (r =
-                                t.getElementsByTagName(
-                                    "script",
-                                )[0]).parentNode.insertBefore(p, r);
-                        var u = e;
-                        for (
-                            void 0 !== a ? (u = e[a] = []) : (a = "posthog"),
-                                u.people = u.people || [],
-                                u.toString = function (t) {
-                                    var e = "posthog";
-                                    return (
-                                        "posthog" !== a && (e += "." + a),
-                                        t || (e += " (stub)"),
-                                        e
-                                    );
-                                },
-                                u.people.toString = function () {
-                                    return u.toString(1) + ".people (stub)";
-                                },
-                                o =
-                                    "init me ws ys ps bs capture je Di ks register register_once register_for_session unregister unregister_for_session Ps getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty Es $s createPersonProfile Is opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing Ss debug xs getPageViewId captureTraceFeedback captureTraceMetric".split(
-                                        " ",
-                                    ),
-                                n = 0;
-                            n < o.length;
-                            n++
-                        )
-                            g(u, o[n]);
-                        e._i.push([i, s, a]);
-                    }),
-                    (e.__SV = 1));
-            })(document, window.posthog || []);
-            posthog.init("phc_yJW1VjHGGwmCbbrtczfqqNxgBDbhlhOWcdzcIJEOTFE", {
-                api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well
-            });
-        </script>
-    </body>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Kushagra Dashora</h1>
+            <p class="hero-subtitle">Robotics Engineering Student</p>
+            <p class="hero-university">at Arizona State University</p>
+            <div class="hero-theme">
+                <p class="theme-label">Grand Challenge Theme</p>
+                <p class="theme-name">Joy of Living</p>
+            </div>
+            <p class="hero-desc">Grand Challenges Scholars Program Digital Portfolio</p>
+            <a href="#about" class="scroll-btn">
+                <span>Scroll Down</span>
+                <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </a>
+        </div>
+        <div class="hero-bounce">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section-dark">
+        <div class="container">
+            <h3 class="section-label">About me</h3>
+            <h2 class="section-title">I am a Senior pursuing my Bachelor's Degree in Robotics Engineering</h2>
+            
+            <div class="about-image">
+                <img src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/hsdxbeaf_About_Me.jpeg" alt="Kushagra Dashora at Pitchfork Awards">
+            </div>
+
+            <div class="grid-2">
+                <div class="content-space">
+                    <p class="text-lg">As a participant in the National Academy of Engineering's <span class="highlight">Grand Challenges Scholars Program</span>, I have developed a comprehensive understanding of how engineering can address humanity's most pressing challenges through interdisciplinary collaboration and innovation.</p>
+                    
+                    <p class="text-lg">My journey through the GCSP has been centered on the theme of <span class="highlight">"Joy of Living"</span> — a commitment to developing technologies that enhance quality of life and restore independence to individuals facing physical challenges.</p>
+
+                    <p class="text-lg">Throughout my college career, I have been actively engaged in numerous student organizations and have proudly served in more than <span class="highlight">5 leadership positions</span>, demonstrating my commitment to service and community building.</p>
+                </div>
+
+                <div class="border-left">
+                    <div class="gcsp-logo">
+                        <img src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/8kjhsrut_GCSP%20Logo.webp" alt="GCSP Logo">
+                    </div>
+                    <h4 class="text-2xl">About the Grand Challenges Scholars Program</h4>
+                    <p class="text-gray">The GCSP prepares the next generation of engineers to address humanity's most pressing challenges through five key competencies:</p>
+                    <div class="competencies-list">
+                        <div class="competency-item">
+                            <h5>Talent</h5>
+                            <p>Research or Creative Project Experience</p>
+                        </div>
+                        <div class="competency-item">
+                            <h5>Multidisciplinary</h5>
+                            <p>Interdisciplinary Coursework</p>
+                        </div>
+                        <div class="competency-item">
+                            <h5>Entrepreneurship</h5>
+                            <p>Business Viability Skills</p>
+                        </div>
+                        <div class="competency-item">
+                            <h5>Multicultural</h5>
+                            <p>Global Perspective</p>
+                        </div>
+                        <div class="competency-item">
+                            <h5>Social Consciousness</h5>
+                            <p>Service Learning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section-light">
+        <div class="container">
+            <h3 class="section-label">Talent Competency</h3>
+            <h2 class="section-title">Research & Creative Projects</h2>
+
+            <div class="grid-2">
+                <div>
+                    <div class="wisk-logo">
+                        <img src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/su97u3i1_Wisk_Logo.webp" alt="Wisk Aero Logo">
+                    </div>
+                    <h4 class="text-2xl">Capstone Project</h4>
+                    <h5 class="text-xl-gray">Wisk Aero Partnership</h5>
+                    
+                    <h6 class="text-lg-bold">Automated Battery Sorting System</h6>
+                    <p class="text-gray">As part of my capstone project, I am collaborating with <span class="highlight">Wisk Aero</span>, a pioneering company in autonomous electric aviation. Our team is developing an innovative Automated Battery Sorting System designed specifically for their factory assembly line to handle battery pouches for their Generation 6 electric VTOL (Vertical Take-Off and Landing) aircraft.</p>
+
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <h6>Team Collaboration</h6>
+                            <p>Working alongside a multidisciplinary team of engineers to design, prototype, and test the automated sorting system</p>
+                        </div>
+                        <div class="feature-item">
+                            <h6>Technical Skills Developed</h6>
+                            <p>Automation systems, robotics integration, quality control mechanisms, and manufacturing optimization for aerospace applications</p>
+                        </div>
+                        <div class="feature-item">
+                            <h6>Impact & Innovation</h6>
+                            <p>Improving manufacturing efficiency and safety standards in the emerging electric aviation industry</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objectives-section">
+                    <div class="border-left">
+                        <h4 class="text-xl">Project Objectives</h4>
+                        <div class="numbered-list">
+                            <div class="numbered-item">
+                                <span class="number">01</span>
+                                <span>Design an automated system to efficiently sort and organize battery pouches based on quality metrics and specifications</span>
+                            </div>
+                            <div class="numbered-item">
+                                <span class="number">02</span>
+                                <span>Integrate computer vision and sensor systems for real-time quality assessment and defect detection</span>
+                            </div>
+                            <div class="numbered-item">
+                                <span class="number">03</span>
+                                <span>Optimize the assembly line workflow to reduce manual handling and improve production throughput</span>
+                            </div>
+                            <div class="numbered-item">
+                                <span class="number">04</span>
+                                <span>Ensure compliance with aerospace industry standards and safety protocols</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-left">
+                        <h4 class="text-xl">Key Learnings</h4>
+                        <ul class="bullet-list">
+                            <li>Understanding the critical role of automation in modern manufacturing</li>
+                            <li>Applying robotics engineering principles to solve industry-specific challenges</li>
+                            <li>Managing complex project timelines and stakeholder expectations</li>
+                            <li>Collaborating effectively in a professional engineering environment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connection-box border-left">
+                <h3 class="text-2xl">Connection to Joy of Living Theme</h3>
+                <p class="text-lg-gray">This research experience directly aligns with my <span class="highlight">Joy of Living</span> theme by contributing to the advancement of sustainable electric aviation technology. The development of efficient, automated manufacturing systems for electric VTOLs supports the creation of cleaner, more accessible transportation solutions that can enhance quality of life by reducing travel time, decreasing environmental impact, and improving urban mobility.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multidisciplinary Section -->
+    <section id="multidisciplinary" class="section-dark">
+        <div class="container">
+            <h3 class="section-label">Multidisciplinary Competency</h3>
+            <h2 class="section-title">Interdisciplinary Learning</h2>
+
+            <div class="grid-2">
+                <div class="border-left">
+                    <div class="gcsp-logo-small">
+                        <img src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/8kjhsrut_GCSP%20Logo.webp" alt="GCSP Logo">
+                    </div>
+                    <h3 class="text-2xl">FSE 150</h3>
+                    <p class="text-gray-500">Introduction to Grand Challenges</p>
+                    
+                    <h4 class="text-xl-bold">Course Experience</h4>
+                    <p class="text-gray">The introductory course to the Grand Challenges Scholars Program, FSE 150, provided me with a comprehensive understanding of the program's main focus areas. The course aimed to familiarize students with diverse engineering solutions and their wide-ranging implications on society.</p>
+                    
+                    <div class="course-topics">
+                        <div class="topic-item">
+                            <h5>Historical Context & Cultural Impact</h5>
+                            <p>We explored historical technologies and their cultural impacts—examining both positive outcomes and negative consequences. This analysis raised important ethical considerations that are essential when developing solutions to global challenges.</p>
+                        </div>
+                        <div class="topic-item">
+                            <h5>Science Fiction & Engineering Innovation</h5>
+                            <p>A particularly fascinating aspect was examining how science fiction influences real engineering developments. This perspective challenged me to think beyond current constraints and envision the potential future applications of emerging technologies.</p>
+                        </div>
+                        <div class="topic-item">
+                            <h5>Ethical Engineering Framework</h5>
+                            <p>The course established a foundation for understanding the ethical dimensions of engineering work, emphasizing the responsibility engineers have in considering long-term societal impacts of their innovations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-left">
+                    <div class="course-image">
+                        <img src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/7zxcv7q8_HST318.png" alt="HST 318">
+                    </div>
+                    <h3 class="text-2xl">HST 318</h3>
+                    <p class="text-gray-500">History of Engineering</p>
+                    
+                    <h4 class="text-xl-bold">Course Experience</h4>
+                    <p class="text-gray">The History of Engineering class was a transformative multidisciplinary experience that encouraged the development of a systems mindset through examining engineering from multiple perspectives. This course transcended traditional technical boundaries, exploring the complex interplay between engineering and broader subjects.</p>
+                    
+                    <div class="course-topics">
+                        <div class="topic-item">
+                            <h5>Interdisciplinary Connections</h5>
+                            <p>We investigated how engineering intersects with policy, politics, human behavior, economics, ethics, and business—developing a holistic understanding that engineers must consider multiple domains when solving complex problems.</p>
+                        </div>
+                        <div class="topic-item">
+                            <h5>Technology & Culture Reciprocity</h5>
+                            <p>One of the most impactful aspects was exploring the reciprocal relationship between technology and culture. We examined major engineering milestones since 1500, key historical figures, and pivotal events that have shaped global technological progress.</p>
+                        </div>
+                        <div class="topic-item">
+                            <h5>Learning from Engineering Failures</h5>
+                            <p>Projects analyzing engineering failures, such as the Bhopal gas tragedy, underscored the critical importance of learning from past mistakes to prevent future calamities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connection-box border-left">
+                <h3 class="text-2xl">Value & Connection to GCSP Theme</h3>
+                <p class="text-lg-gray">These interdisciplinary courses have been fundamental in shaping my approach to engineering challenges within the <span class="highlight">Joy of Living</span> theme. By understanding the historical context of technological development and its cultural implications, I've learned to approach engineering problems with a broader perspective that considers societal impact, ethical considerations, and long-term consequences.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Entrepreneurship Section -->
+    <section id="entrepreneurship" class="section-light">
+        <div class="container">
+            <h3 class="section-label">Entrepreneurship Competency</h3>
+            <h2 class="section-title">Business Viability & Innovation</h2>
+
+            <div class="border-left">
+                <div class="section-image">
+                    <img src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/ywvnmk13_FSE301.jpg" alt="FSE 301">
+                </div>
+                <h3 class="text-3xl">FSE 301</h3>
+                <p class="text-gray-500">Entrepreneurship Course</p>
+                <p class="text-xl-gray">Transforming Devils Prosthetics from Project to Business Venture</p>
+
+                <div class="entrepreneurship-content">
+                    <p class="text-lg-gray">The FSE301 entrepreneurship class has been a pivotal turning point in my academic journey, fundamentally shaping how I approach my team venture with <span class="highlight">Devils Prosthetics</span>. From the start of the class to our final Evidence-Based Pitch Deck, I engaged deeply with every stage of the entrepreneurial process.</p>
+
+                    <div class="grid-2-skills">
+                        <div class="skill-item">
+                            <h4>Active Listening & Empathy</h4>
+                            <p>By genuinely engaging with potential users of our prosthetics, I learned not just to hear but to understand their diverse needs and concerns.</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Research & Critical Thinking</h4>
+                            <p>During the course, I decided to work with my team at Devils Prosthetics to transform it into a successful venture, using this class as a launch pad.</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Pitch Development & Funding</h4>
+                            <p>This class helped me refine our pitch for funding. The skills learned led us to win additional funding in various pitch competitions.</p>
+                        </div>
+                        <div class="skill-item">
+                            <h4>Stakeholder Communication</h4>
+                            <p>I learned to articulate the importance of our solutions from various perspectives, ensuring our pitches were compelling and grounded in real-world applications.</p>
+                        </div>
+                    </div>
+
+                    <div class="skills-box">
+                        <h4 class="text-xl">Key Skills Developed</h4>
+                        <p class="text-gray">Throughout the course, the emphasis on innovation, collaboration, and continuous improvement helped me see challenges not as barriers but as opportunities for growth:</p>
+                        <div class="grid-2-compact">
+                            <ul class="bullet-list">
+                                <li>Active listening and user empathy</li>
+                                <li>Effective communication and presentation</li>
+                                <li>Adaptability and problem-solving</li>
+                            </ul>
+                            <ul class="bullet-list">
+                                <li>Continuous learning and improvement</li>
+                                <li>Business model development</li>
+                                <li>Evidence-based decision making</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="connection-box">
+                    <h3 class="text-2xl">Connection to Joy of Living Theme</h3>
+                    <p class="text-lg-gray">This entrepreneurship experience directly embodies the <span class="highlight">Joy of Living</span> theme. The class instilled in me a mindset geared toward thoughtful innovation and meaningful engagement with the community, as it brings immense satisfaction to work on projects that enhance people's lives by providing more cost-effective prosthetic solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multicultural Section -->
+    <section id="multicultural" class="section-dark">
+        <div class="container">
+            <h3 class="section-label">Multicultural Competency</h3>
+            <h2 class="section-title">Global Perspectives</h2>
+
+            <div class="grid-2">
+                <div class="border-left">
+                    <div class="course-image">
+                        <img src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/5429nxs4_Food_and_Culture.png" alt="Food and Culture">
+                    </div>
+                    <h3 class="text-2xl">ASB 300</h3>
+                    <p class="text-gray-500">Food and Culture</p>
+                    
+                    <h4 class="text-xl-bold">Course Experience</h4>
+                    <p class="text-gray">ASB 300: Food and Culture offered a fascinating exploration of how food serves as a lens for understanding diverse cultures, social structures, and historical developments.</p>
+                    
+                    <div class="course-topics">
+                        <div class="topic-item">
+                            <h5>Cultural Significance of Food</h5>
+                            <p>We examined how food traditions reflect cultural values, religious practices, economic systems, and social hierarchies.</p>
+                        </div>
+                        <div class="topic-item">
+                            <h5>Globalization & Food Systems</h5>
+                            <p>The course explored how globalization impacts food production, distribution, and consumption patterns worldwide.</p>
+                        </div>
+                        <div class="topic-item">
+                            <h5>Cross-Cultural Communication</h5>
+                            <p>By studying food as a cultural artifact, I developed deeper cultural sensitivity and awareness.</p>
+                        </div>
+                    </div>
+
+                    <div class="connection-mini">
+                        <h5>Connection to GCSP Theme</h5>
+                        <p>Understanding cultural diversity through food systems relates to the <span class="highlight">Joy of Living</span> theme by recognizing that quality of life is deeply influenced by cultural traditions and access to nutritious food.</p>
+                    </div>
+                </div>
+
+                <div class="border-left">
+                    <div class="course-image">
+                        <img src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/8a0kmx1w_Language_and_Culture.png" alt="Languages and Cultures">
+                    </div>
+                    <h3 class="text-2xl">SLC 212</h3>
+                    <p class="text-gray-500">Languages and Cultures Clash</p>
+                    
+                    <h4 class="text-xl-bold">Course Experience</h4>
+                    <p class="text-gray">SLC 212: Languages and Cultures Clash provided an in-depth examination of how language shapes cultural identity and how cultural conflicts arise from linguistic differences and communication barriers.</p>
+                    
+                    <div class="course-topics">
+                        <div class="topic-item">
+                            <h5>Language as Cultural Identity</h5>
+                            <p>We explored how language serves not just as a communication tool but as a fundamental component of cultural identity.</p>
+                        </div>
+                        <div class="topic-item">
+                            <h5>Navigating Cultural Conflicts</h5>
+                            <p>The course examined historical and contemporary examples of cultural clashes resulting from language barriers and miscommunication.</p>
+                        </div>
+                        <div class="topic-item">
+                            <h5>Global Collaboration Skills</h5>
+                            <p>I learned strategies for effective communication across cultural boundaries—essential skills for collaborating with international teams.</p>
+                        </div>
+                    </div>
+
+                    <div class="connection-mini">
+                        <h5>Connection to GCSP Theme</h5>
+                        <p>This course deepens my understanding of the <span class="highlight">Joy of Living</span> theme by highlighting how effective cross-cultural communication enhances collaboration and understanding.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="connection-box border-left">
+                <h3 class="text-2xl">Value of Multicultural Competency</h3>
+                <p class="text-lg-gray">For my work in robotics and prosthetics—particularly with Devils Prosthetics—this cultural awareness is essential. Different cultures may have varying attitudes toward assistive technologies, different aesthetic preferences, and unique functional requirements based on their daily activities and traditions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Learning Section -->
+    <section id="service" class="section-light">
+        <div class="container">
+            <h3 class="section-label">Social Consciousness Competency</h3>
+            <h2 class="section-title">Service Learning</h2>
+
+            <div class="border-left">
+                <div class="section-image">
+                    <img src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/96wux51c_Devils_Prosthetics.JPG" alt="Devils Prosthetics">
+                </div>
+                <h3 class="text-3xl">EPICS Program</h3>
+                <p class="text-gray-500">Devils Prosthetics - Electrical Design Lead</p>
+
+                <h4 class="text-2xl">3D-Printed Myoelectric Prosthetic Development</h4>
+                <p class="text-lg-gray">As Devils Prosthetics' electrical design lead within EPICS (Engineering Projects in Community Service), my focus centered on developing a 3D-printed myoelectric prosthetic for trans-radial amputations.</p>
+
+                <div class="grid-3">
+                    <div class="service-item">
+                        <h5>Leadership Role</h5>
+                        <p>My role extended beyond technical design to encompass leadership that fostered open communication and mutual respect among team members.</p>
+                    </div>
+                    <div class="service-item">
+                        <h5>Community Partnership</h5>
+                        <p>We initiated communication with our community partner, Noah Nemgar, CPO at Limb Labs, ensuring our prosthetic met real-world needs.</p>
+                    </div>
+                    <div class="service-item">
+                        <h5>EPICS Elite Funding</h5>
+                        <p>The success of securing <span class="highlight">$10,000 in EPICS Elite Pitch Funding</span> highlighted the effectiveness of our collaborative approach.</p>
+                    </div>
+                </div>
+
+                <div class="impact-box">
+                    <h4 class="text-xl">Community Impact & Social Responsibility</h4>
+                    <p class="text-gray">Our collaboration with Limb Labs went beyond theoretical considerations. Witnessing the tangible impact of our efforts on individuals facing challenges underscored the significance of empathy and social responsibility in the engineering process.</p>
+                </div>
+            </div>
+
+            <div class="border-left">
+                <div class="section-image">
+                    <img src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/hb4kyun0_Fulton_ambassadors.jpeg" alt="Fulton Ambassadors">
+                </div>
+                <h3 class="text-3xl">Fulton Ambassadors</h3>
+                <p class="text-gray-500">3.5 Years • Poly Co-Tour Director • Poly President</p>
+
+                <h4 class="text-2xl">Bridging Communities & Building Futures</h4>
+                <p class="text-lg-gray">Fulton Ambassadors (FAs) stands as a vital link between prospective students and donors and the vibrant engineering community within the university.</p>
+
+                <div class="grid-2">
+                    <div>
+                        <h5 class="text-lg-bold">Leadership Evolution</h5>
+                        <p class="text-gray">Throughout my four years with the organization, I assumed several leadership roles including:</p>
+                        <ul class="bullet-list-compact">
+                            <li><span class="highlight">Poly Co-Tour Director:</span> Coordinating campus tours and visitor experiences</li>
+                            <li><span class="highlight">Poly President:</span> Leading the organization and strategic initiatives</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="text-lg-bold">Diverse Responsibilities</h5>
+                        <p class="text-gray">My responsibilities spanned:</p>
+                        <ul class="bullet-list-compact">
+                            <li>Conducting one-on-one sessions with incoming students</li>
+                            <li>Representing the school at donor events</li>
+                            <li>Participating in high school visits</li>
+                            <li>Conducting campus tours</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="growth-box">
+                    <h5 class="text-lg-bold">Personal Growth</h5>
+                    <p class="text-gray">My time as a Fulton Ambassador has marked significant personal growth—from honing public speaking and leadership skills to expanding my network within the engineering community.</p>
+                </div>
+            </div>
+
+            <div class="connection-box border-left">
+                <h3 class="text-2xl">Connection to Joy of Living Theme & Engineering</h3>
+                <p class="text-lg-gray">Both service-learning experiences directly embody the <span class="highlight">Joy of Living</span> theme through meaningful community engagement. These experiences have reinforced my commitment to using engineering as a force for enhancing human well-being and quality of life.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="section-dark">
+        <div class="container">
+            <h3 class="section-label">Concluding Remarks</h3>
+            <h2 class="section-title">Becoming a Grand Challenges Scholar</h2>
+
+            <div class="border-left">
+                <h3 class="text-3xl">Achieving GCSP Goals Across Five Competencies</h3>
+                <p class="text-lg-gray">The Grand Challenges Scholars Program has been a transformative journey that has shaped me into a more well-rounded, socially conscious, and capable engineer.</p>
+
+                <div class="grid-2">
+                    <div class="competencies-summary">
+                        <div class="competency-summary">
+                            <h4>Talent Competency</h4>
+                            <p>Through my capstone project with <span class="highlight">Wisk Aero</span>, I developed advanced technical skills in automation and robotics.</p>
+                        </div>
+                        <div class="competency-summary">
+                            <h4>Multidisciplinary Competency</h4>
+                            <p><span class="highlight">FSE 150</span> and <span class="highlight">HST 318</span> broadened my perspective beyond pure technical work.</p>
+                        </div>
+                        <div class="competency-summary">
+                            <h4>Entrepreneurship Competency</h4>
+                            <p><span class="highlight">FSE 301</span> transformed how I approach innovation by teaching me to convert technical projects into viable business ventures.</p>
+                        </div>
+                    </div>
+                    <div class="competencies-summary">
+                        <div class="competency-summary">
+                            <h4>Multicultural Competency</h4>
+                            <p><span class="highlight">ASB 300</span> and <span class="highlight">SLC 212</span> developed my cultural awareness and sensitivity.</p>
+                        </div>
+                        <div class="competency-summary">
+                            <h4>Social Consciousness Competency</h4>
+                            <p>My service-learning experiences with <span class="highlight">EPICS</span> and <span class="highlight">Fulton Ambassadors</span> reinforced that engineering is ultimately about serving people.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-left">
+                <h3 class="text-3xl">The Connectivity: Joy of Living as a Unifying Theme</h3>
+                <p class="text-lg-gray">What makes my GCSP experience particularly meaningful is how all five competencies interconnect through the central theme of <span class="highlight">Joy of Living</span>. This theme isn't just a label—it's the thread that weaves together every course, project, and experience into a cohesive vision of engineering for human well-being.</p>
+                
+                <div class="connectivity-items">
+                    <div class="connectivity-item">
+                        <h4>From Research to Real-World Impact</h4>
+                        <p>My research with Wisk Aero contributes to sustainable electric aviation. This connects directly to my service work with Devils Prosthetics, where we're developing affordable assistive technology.</p>
+                    </div>
+                    <div class="connectivity-item">
+                        <h4>Cultural Awareness Meets Social Impact</h4>
+                        <p>My multicultural coursework taught me that improving quality of life requires understanding diverse cultural contexts.</p>
+                    </div>
+                    <div class="connectivity-item">
+                        <h4>Entrepreneurship as a Vehicle for Impact</h4>
+                        <p>The entrepreneurship skills I developed are essential for translating innovative ideas into sustainable solutions that can reach more people.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-left">
+                <h3 class="text-3xl">Preparation as an Engineer and Future Career</h3>
+                <p class="text-lg-gray">The GCSP experience has fundamentally shaped how I approach engineering challenges and has prepared me exceptionally well for my future career in robotics engineering.</p>
+
+                <div class="grid-2">
+                    <div>
+                        <h4 class="text-xl">Technical & Leadership Skills</h4>
+                        <ul class="bullet-list">
+                            <li>Advanced technical expertise in automation and robotics</li>
+                            <li>Leadership experience managing multidisciplinary teams</li>
+                            <li>Project management and stakeholder communication</li>
+                            <li>Business development and entrepreneurial thinking</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl">Holistic Perspective</h4>
+                        <ul class="bullet-list">
+                            <li>Understanding of ethical implications and social responsibility</li>
+                            <li>Cultural awareness for working in global teams</li>
+                            <li>Systems thinking considering multiple factors</li>
+                            <li>Commitment to meaningful social impact</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-left">
+                <h3 class="text-3xl">Overall Opinion of the GCSP Experience</h3>
+                <p class="text-lg-gray">The Grand Challenges Scholars Program has been one of the most valuable aspects of my undergraduate education. It has transformed me from a student focused primarily on technical skills into a well-rounded engineer prepared to tackle humanity's greatest challenges.</p>
+                
+                <div class="feedback-box">
+                    <h4 class="text-xl">Feedback for Program Improvement</h4>
+                    <p class="text-gray">One suggestion for enhancing the program would be to create more structured opportunities for GCSP scholars to collaborate across different Grand Challenge themes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3 class="footer-title">Let's Collaborate and change the world</h3>
+            </div>
+
+            <div class="footer-grid">
+                <div>
+                    <h4>Kushagra Dashora</h4>
+                    <p>Grand Challenges Scholar</p>
+                    <p>Robotics Engineering</p>
+                    <p>Arizona State University</p>
+                </div>
+
+                <div>
+                    <h4>Grand Challenge Theme</h4>
+                    <p class="theme-highlight">Joy of Living</p>
+                    <p>Developing technologies that enhance quality of life and restore independence.</p>
+                </div>
+
+                <div>
+                    <h4>Program Information</h4>
+                    <p>Grand Challenges Scholars Program</p>
+                    <p>Ira A. Fulton Schools of Engineering</p>
+                    <p>Graduating May 2026</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kushagra Dashora. GCSP Digital Portfolio.</p>
+                <div class="social-links">
+                    <a href="mailto:kdashora@asu.edu" aria-label="Email">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kushagra-dashora/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
