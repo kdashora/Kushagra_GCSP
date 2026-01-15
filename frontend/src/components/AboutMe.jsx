@@ -36,6 +36,13 @@ const AboutMe = () => {
 
           <div className="space-y-8">
             <div className="border-l-2 border-gray-700 pl-8">
+              <div className="mb-6">
+                <img 
+                  src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/8kjhsrut_GCSP%20Logo.webp" 
+                  alt="Grand Challenges Scholars Program Logo"
+                  className="w-48 mb-6"
+                />
+              </div>
               <h4 className="text-2xl font-bold mb-4">About the Grand Challenges Scholars Program</h4>
               <p className="text-gray-400 leading-relaxed mb-6">
                 The GCSP prepares the next generation of engineers to address humanity's most pressing challenges through five key competencies:
