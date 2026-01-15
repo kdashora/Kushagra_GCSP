@@ -11,6 +11,14 @@ const AboutMe = () => {
           </h2>
         </div>
 
+        <div className="mb-12">
+          <img 
+            src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/hsdxbeaf_About_Me.jpeg" 
+            alt="Kushagra Dashora at Pitchfork Awards"
+            className="w-full max-w-2xl mx-auto rounded-lg shadow-2xl"
+          />
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-16">
           <div className="space-y-8">
             <p className="text-lg text-gray-300 leading-relaxed">
