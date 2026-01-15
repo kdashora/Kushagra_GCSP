@@ -48,6 +48,13 @@ const Multidisciplinary = () => {
 
           {/* HST 318 */}
           <div className="border-l-2 border-gray-800 pl-8">
+            <div className="mb-6">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_db1876d2-bfe7-4217-8fe1-4f5930ef662d/artifacts/7zxcv7q8_HST318.png" 
+                alt="HST 318 History of Engineering"
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
             <h3 className="text-2xl font-bold mb-2">HST 318</h3>
             <p className="text-gray-500 mb-6">History of Engineering</p>
             
