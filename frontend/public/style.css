@@ -585,7 +585,7 @@ img {
 }
 
 .bullet-list-compact li::before {
-    content: '\u2022';
+    content: '•';
     color: var(--color-gray-600);
     margin-top: 0.25rem;
 }
